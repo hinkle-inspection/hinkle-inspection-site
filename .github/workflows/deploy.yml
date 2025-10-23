@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npm run build
+
+      # Preserve your custom domain on every deploy
+      - name: Add CNAME
+        run: |
+          mkdir -p dist
+          echo "hinkle.waderogers.dev" > dist/CNAME
+
+      - name: Publish
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: dist
+          publish_branch: gh-pages

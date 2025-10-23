@@ -1,0 +1,42 @@
+:root {
+  color-scheme: light dark;
+
+  /* Background & Surface */
+  --color-bg:           light-dark(#f8f9fc, #0d1117);
+  --color-surface-1:    light-dark(#eef1f8, #1a1f2e);
+  --color-surface-2:    light-dark(#dfe4f2, #252d3f);
+  --color-surface-3:    light-dark(#cdd5eb, #303a52);
+  --color-border:       light-dark(#b5c2e0, #3d4a66);
+
+  /* Text */
+  --color-text:         light-dark(#0d1117, #f8f9fc);
+  --color-text-secondary: light-dark(#1a1f2e, #dfe4f2);
+  --color-text-muted:   light-dark(#3d4a66, #b5c2e0);
+  --color-text-inverse: light-dark(#f8f9fc, #0d1117);
+  --color-text-accent:  light-dark(#1e40af, #5b8def);
+
+  /* Semantic Roles */
+  --color-primary:      light-dark(#1e40af, #5b8def);
+  --color-secondary:    light-dark(#1e3a8a, #4c6fc9);
+  --color-accent:       light-dark(#2563eb, #7ea3f5);
+  --color-info:         light-dark(#0284c7, #38bdf8);
+  --color-success:      light-dark(#059669, #34d399);
+  --color-warning:      light-dark(#d97706, #fbbf24);
+  --color-error:        light-dark(#dc2626, #f87171);
+
+  /* Utility colors from palette */
+  --color-steel:        light-dark(#475569, #94a3b8);
+  --color-navy:         light-dark(#0f172a, #334155);
+  --color-cobalt:       light-dark(#1d4ed8, #60a5fa);
+  --color-slate:        light-dark(#64748b, #cbd5e1);
+  --color-indigo:       light-dark(#4f46e5, #818cf8);
+
+  /* Overlay / Utility */
+  --color-overlay:      light-dark(rgba(13,17,23,0.4), rgba(0,0,0,0.6));
+  --color-divider:      light-dark(#dfe4f2, #252d3f);
+  --color-shadow:       light-dark(rgba(13,17,23,0.15), rgba(0,0,0,0.5));
+}
+
+/* Manual overrides handled by toggle */
+html[data-theme="light"] { color-scheme: light; }
+html[data-theme="dark"]  { color-scheme: dark;  }

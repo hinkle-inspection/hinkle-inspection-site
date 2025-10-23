@@ -1,0 +1,30 @@
+@layer base {
+  :root {
+  /* Spacing with a master multiplier that media.css will adjust */
+  --space-0: 0;
+  --space-1: calc(0.25rem * var(--scale));   // 4px
+  --space-2: calc(0.5rem * var(--scale));    // 8px
+  --space-3: calc(0.75rem * var(--scale));   // 12px
+  --space-4: calc(1rem * var(--scale));      // 16px
+  --space-5: calc(1.25rem * var(--scale));   // 20px
+  --space-6: calc(1.5rem * var(--scale));    // 24px
+  --space-8: calc(2rem * var(--scale));      // 32px
+  --space-10: calc(2.5rem * var(--scale));   // 40px
+  --space-12: calc(3rem * var(--scale));     // 48px
+  --space-16: calc(4rem * var(--scale));     // 64px
+  --space-20: calc(5rem * var(--scale));     // 80px
+  --space-24: calc(6rem * var(--scale));     // 96px
+
+  // Negative spacing
+  --space-neg-1: calc(var(--space-1) * -1);
+  --space-neg-2: calc(var(--space-2) * -1);
+  --space-neg-3: calc(var(--space-3) * -1);
+  --space-neg-4: calc(var(--space-4) * -1);
+  --space-neg-5: calc(var(--space-5) * -1);
+  --space-neg-6: calc(var(--space-6) * -1);
+  --space-neg-8: calc(var(--space-8) * -1);
+  --space-neg-10: calc(var(--space-10) * -1);
+  --space-neg-12: calc(var(--space-12) * -1);
+  --space-neg-16: calc(var(--space-16) * -1);
+ }
+}

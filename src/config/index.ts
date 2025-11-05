@@ -106,9 +106,9 @@ export const SITE_CONFIG = {
   description: 'Professional welding inspection and testing services with certified expertise ensuring structural integrity and compliance with industry standards.',
   url: 'http://hinkletesting.com',
   phone: '(512) 797-5232',
-  email: 'https://hinkle.fab@gmail.com',
+  email: 'hinkle.fab@gmail.com',
   social: {
-    // linkedin: 'https://linkedin.com/in/yourprofile',
-    // facebook: 'https://facebook.com/yourpage'
+    // linkedin: 'https://linkedin.com/in/',
+    // facebook: 'https://facebook.com/'
   }
 }

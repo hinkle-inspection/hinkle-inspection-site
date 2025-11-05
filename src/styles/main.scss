@@ -3,6 +3,7 @@
 @use "./space.scss";
 @use "./fonts.scss";
 @use "./colors.scss";
+@use "./components.scss";
 // @use "./media.scss"; // ! Mixins are handled in vite.config.ts, needs to be processed at compilation
 
 /* Base element styling using tokens */

@@ -1,5 +1,14 @@
 <template>
   <section class="hero">
+    <div class="hero__background">
+      <img 
+        :src="getAssetUrl(HERO_IMAGE.full!)" 
+        alt="Professional welding inspection equipment and testing"
+        class="hero__image"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    
     <div class="hero__container">
       <div class="hero__content">
         <h1 class="hero__title">
@@ -9,37 +18,30 @@
           {{ subtitle }}
         </p>
         <div class="hero__actions">
-          <RouterLink 
-            to="#contact" 
+          <a 
+            href="#contact" 
             class="hero__cta hero__cta--primary"
             @click.prevent="scrollToContact"
           >
             {{ primaryCtaText }}
-          </RouterLink>
-          <RouterLink 
-            to="#services" 
+          </a>
+          <a 
+            href="#services" 
             class="hero__cta hero__cta--secondary"
             @click.prevent="scrollToServices"
           >
             {{ secondaryCtaText }}
-          </RouterLink>
+          </a>
         </div>
       </div>
     </div>
-    <RouterLink 
-      to="#services" 
-      class="hero__scroll-indicator"
-      @click.prevent="scrollToServices"
-    >
-      <span class="hero__scroll-text">Explore</span>
-      <svg class="hero__scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M12 5v14M19 12l-7 7-7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </RouterLink>
   </section>
 </template>
 
 <script setup lang="ts">
+import { getAssetUrl } from '@/utils/assets'
+import { HERO_IMAGE } from '@/assets/images'
+
 interface Props {
   title?: string
   subtitle?: string
@@ -74,22 +76,50 @@ const scrollToServices = () => scrollToSection('#services')
 
 <style scoped lang="scss">
 .hero {
-  color-scheme: dark;
 
-  min-height: 100dvh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  
   top: calc( -1 * var(--nav-bar-height));
   position: relative;
-  background: linear-gradient(
-    135deg,
-    var(--color-surface-1) 0%,
-    var(--color-secondary) 50%,
-    var(--color-surface-1) 100%
-  );
+  overflow: hidden;
+  
+  @include mobile {
+    min-height: 80vh;
+    padding: var(--space-8) 0;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 51, 102, 0.75) 0%,
+      rgba(0, 102, 204, 0.35) 50%,
+      rgba(0, 51, 102, 0.75) 100%
+    );
+    
+    // Alternative: Solid dark overlay
+    // background: rgba(0, 51, 102, 0.8);
+  }
 
   &__container {
+    position: relative;
+    z-index: 1;
     max-width: var(--max-width);
     width: 100%;
     margin: 0 auto;
@@ -103,13 +133,17 @@ const scrollToServices = () => scrollToSection('#services')
   }
 
   &__title {
+    // color-scheme: light;
+
     font-family: var(--font-heading);
     font-size: var(--text-5xl);
     font-weight: var(--font-bold);
-    color: var(--color-text-inverse);
+    color: var(--color-text);
     line-height: var(--leading-tight);
     margin-bottom: var(--space-6);
-    
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    // -webkit-text-stroke-width: .1rem;
+    // -webkit-text-stroke-color: var(--color-primary);
     @include tablet {
       font-size: var(--text-4xl);
     }
@@ -123,9 +157,10 @@ const scrollToServices = () => scrollToSection('#services')
   &__subtitle {
     font-family: var(--font-body);
     font-size: var(--text-xl);
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.95);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-8);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     
     @include tablet {
       font-size: var(--text-lg);
@@ -143,8 +178,6 @@ const scrollToServices = () => scrollToSection('#services')
     justify-content: center;
     
     @include mobile {
-      width: fit-content;
-      margin: auto;
       flex-direction: column;
       gap: var(--space-3);
     }
@@ -173,7 +206,7 @@ const scrollToServices = () => scrollToSection('#services')
       &:hover {
         background: var(--color-surface-1);
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px var(--color-shadow);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
       }
       
       &:active {
@@ -183,68 +216,13 @@ const scrollToServices = () => scrollToSection('#services')
 
     &--secondary {
       background: transparent;
-      color: var(--color-text-secondary);
-      border: 2px solid var(--color-accent);
+      color: var(--color-text);
+      border: 2px solid rgba(255, 255, 255, 0.7);
       
       &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.9);
       }
-    }
-  }
-
-  &__scroll-indicator {
-    position: absolute;
-    bottom: var(--space-8);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--color-info);
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    text-decoration: none;
-
-    @include mobile {
-      bottom: var(--space-5);
-    }
-  }
-
-  &__scroll-text {
-    font-family: var(--font-ui);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.8;
-  }
-
-  &__scroll-arrow {
-    width: 24px;
-    height: 24px;
-    opacity: 0.8;
-  }
-
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    40% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-      transform: translateX(-50%) translateY(-5px);
-    }
-  }
-}
-
-// Respect reduced motion
-@media (prefers-reduced-motion: reduce) {
-  .photo-hero {
-    &__scroll-indicator {
-      animation: none;
     }
   }
 }

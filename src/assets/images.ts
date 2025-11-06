@@ -34,7 +34,7 @@ function createImageAsset(
     path: `/${group}/prev/${filename}`,
     full: `/${group}/full/${filename}`,
     alt: overrides?.description || overrides?.alt || '',
-    aspectRatio: '16:9',
+    // aspectRatio: '16:9',
     ...overrides,
   }
 }
@@ -42,7 +42,23 @@ function createImageAsset(
 // ============================================================================
 // HERO IMAGE
 // ============================================================================
+
 export const HERO_IMAGE: ImageAsset = createImageAsset('testing', 'IMG_3604.webp')
+
+
+// ============================================================================
+// RECENT ASSETS
+// ============================================================================
+
+export const RECENT_IMAGES: ImageAsset[] = [
+  createImageAsset('testing', 'IMG_9992.webp', 0),
+  createImageAsset('testing', 'IMG_0388.webp', 1),
+  createImageAsset('testing', 'IMG_9156.webp', 4),
+  createImageAsset('testing', 'TC_00012.webp', 5),
+  createImageAsset('fab', 'IMG_3615.webp', 2),
+  createImageAsset('fab', 'IMG_2448.webp', 3),
+]
+
 // ============================================================================
 // COMMUNITY ASSETS
 // ============================================================================

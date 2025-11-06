@@ -77,11 +77,19 @@
 
         <div class="home-page__gallery-preview">
           <div
-            v-for="(image, idx) in galleryPreviewImages"
-            :key="idx"
+            v-for="(image, idx) in RECENT_IMAGES"
+            :key="image.id"
             class="home-page__gallery-item"
+            @click="openLightbox(idx)"
           >
-            <img :src="image.url" :alt="image.alt" />
+            <img 
+              :src="getAssetUrl(image.path)" 
+              :alt="image.alt || 'Welding inspection project'"
+              loading="lazy"
+            />
+            <div class="home-page__gallery-overlay">
+              <Expand :size="32" />
+            </div>
           </div>
         </div>
 
@@ -116,17 +124,27 @@
         <QuoteForm :config="quoteConfig" :services="services" />
       </div>
     </section>
+
+    <!-- Lightbox -->
+    <BaseLightbox
+      v-if="lightboxIndex !== null"
+      :images="RECENT_IMAGES"
+      :currentIndex="lightboxIndex"
+      @close="closeLightbox"
+      @navigate="lightboxIndex = $event"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { MapPin, ArrowRight } from 'lucide-vue-next'
+import { ref, computed } from 'vue'
+import { MapPin, ArrowRight, Expand } from 'lucide-vue-next'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import ServiceCard from '@/components/cards/ServiceCard.vue'
 import CertificationBadge from '@/components/cards/CertificationBadge.vue'
 import TestimonialCard from '@/components/cards/TestimonialCard.vue'
 import QuoteForm from '@/components/forms/QuoteForm.vue'
+import BaseLightbox from '@/components/media/Lightbox.vue'
 import {
   QUOTE_CONFIG,
   SERVICES,
@@ -134,6 +152,8 @@ import {
   SERVICE_AREAS,
   TESTIMONIALS
 } from '@/config'
+import { RECENT_IMAGES } from '@/assets/images'
+import { getAssetUrl } from '@/utils/assets'
 
 const quoteConfig = QUOTE_CONFIG
 const services = SERVICES
@@ -145,16 +165,16 @@ const servicesWithDetails = computed(() =>
   services.filter(s => s.detailContent)
 )
 
-// Placeholder gallery preview images
-// TODO: Replace with actual project images
-const galleryPreviewImages = [
-  { url: '/assets/gallery/preview-1.jpg', alt: 'Weld inspection project 1' },
-  { url: '/assets/gallery/preview-2.jpg', alt: 'Weld inspection project 2' },
-  { url: '/assets/gallery/preview-3.jpg', alt: 'Weld inspection project 3' },
-  { url: '/assets/gallery/preview-4.jpg', alt: 'Weld inspection project 4' },
-  { url: '/assets/gallery/preview-5.jpg', alt: 'Weld inspection project 5' },
-  { url: '/assets/gallery/preview-6.jpg', alt: 'Weld inspection project 6' }
-]
+// Lightbox state
+const lightboxIndex = ref<number | null>(null)
+
+const openLightbox = (index: number) => {
+  lightboxIndex.value = index
+}
+
+const closeLightbox = () => {
+  lightboxIndex.value = null
+}
 </script>
 
 <style scoped lang="scss">
@@ -328,16 +348,31 @@ const galleryPreviewImages = [
     }
 
     @include mobile {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: var(--space-2);
     }
   }
 
   &__gallery-item {
-    aspect-ratio: 4 / 3;
+    position: relative;
+    aspect-ratio: 1 / 1;
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--color-surface-2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .home-page__gallery-overlay {
+        opacity: 1;
+      }
+
+      img {
+        transform: scale(1.05);
+      }
+    }
 
     img {
       width: 100%;
@@ -345,9 +380,21 @@ const galleryPreviewImages = [
       object-fit: cover;
       transition: transform 0.3s ease;
     }
+  }
 
-    &:hover img {
-      transform: scale(1.05);
+  &__gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 51, 102, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    @include mobile {
+      opacity: 0;
     }
   }
 
@@ -386,6 +433,17 @@ const galleryPreviewImages = [
     @include mobile {
       grid-template-columns: 1fr;
       gap: var(--space-4);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page__gallery-item,
+  .home-page__gallery-item img {
+    transition: none;
+    
+    &:hover {
+      transform: none;
     }
   }
 }

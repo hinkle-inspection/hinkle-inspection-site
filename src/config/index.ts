@@ -13,47 +13,90 @@ export const QUOTE_CONFIG: QuoteConfig = {
 // Services data
 export const SERVICES: Service[] = [
   {
-    id: 'visual-inspection',
-    title: 'Visual Weld Inspection',
+    id: 'welder-certification',
+    title: 'Welder Certification',
+    icon: 'BadgeCheck',
+    description: 'Welder performance qualification testing and certification to current code requirements for your project and industry.',
+    detailContent: 'Welder qualification testing and documentation to AWS, ASME, and API requirements, including records and certification packages aligned to project specifications and audit needs.'
+  },
+  {
+    id: 'inspection',
+    title: 'Inspection',
     icon: 'Eye',
-    description: 'Comprehensive visual examination of welds to detect surface defects, discontinuities, and compliance with welding codes and standards.',
-    detailContent: 'Detailed examination of weld quality, surface finish, and dimensional accuracy according to AWS D1.1 and other applicable standards.'
+    description: 'Weld inspection services focused on code compliance, workmanship verification, and clear documentation for stakeholders.',
+    detailContent: 'Inspection support for fabrication and field work, including visual examination, verification to applicable codes and project requirements, and professional reporting for closeout and traceability.'
   },
   {
-    id: 'ndt-testing',
-    title: 'Non-Destructive Testing',
-    icon: 'ScanLine',
-    description: 'Advanced NDT methods including ultrasonic, magnetic particle, and liquid penetrant testing to evaluate weld integrity without damaging the component.',
-    detailContent: 'Complete NDT services following ASNT and AWS guidelines for critical structural and pressure vessel applications.'
+    id: 'qa-qc',
+    title: 'QA/QC',
+    icon: 'ShieldCheck',
+    description: 'Quality assurance and quality control support to reduce rework, improve consistency, and strengthen compliance across welding activities.',
+    detailContent: 'QA/QC program support including process verification, hold point planning, documentation control, and alignment to customer standards and ISO-driven workflows where applicable.'
   },
   {
-    id: 'documentation',
-    title: 'Documentation & Reporting',
-    icon: 'FileText',
-    description: 'Detailed inspection reports, certification documentation, and compliance verification for project requirements and regulatory standards.',
-    detailContent: 'Professional documentation packages including inspection records, test results, and certification letters for submittal and archival.'
+    id: 'training',
+    title: 'Training',
+    icon: 'GraduationCap',
+    description: 'Practical training for welders, inspectors, and teams to build capability, improve outcomes, and meet certification requirements.',
+    detailContent: 'Hands-on training and continuing education support tailored to your codes, procedures, and workforce needs, including mentorship and skill development for qualification readiness.'
+  },
+  {
+    id: 'consulting',
+    title: 'Consulting',
+    icon: 'BriefcaseBusiness',
+    description: 'Welding and inspection consulting to help teams plan, execute, and document work to meet project and regulatory expectations.',
+    detailContent: 'Consulting support for welding programs, qualification strategy, documentation readiness, and implementation guidance based on current industry codes and standards.'
   }
 ]
 
-// Certifications data
+
 export const CERTIFICATIONS: Certification[] = [
   {
     id: 'cwi',
-    title: 'Certified Welding Inspector',
-    issuer: 'American Welding Society',
-    number: 'CWI-12345678',
-    expiryDate: '2026-12-31',
-    description: 'AWS Certified Welding Inspector with expertise in structural steel, pressure vessels, and piping systems.'
+    title: 'Certified Welding Inspector (CWI)',
+    issuer: 'American Welding Society (AWS)',
+    description: 'Inspection focused support for code compliance, workmanship verification, and project documentation across structural and piping applications.',
+    highlights: [
+      'Code focused inspection support',
+      'Clear reporting and closeout documentation',
+      'Experience across commercial and industrial projects'
+    ]
   },
   {
-    id: 'scwi',
-    title: 'Senior Certified Welding Inspector',
-    issuer: 'American Welding Society',
-    number: 'SCWI-87654321',
-    expiryDate: '2027-06-30',
-    description: 'Advanced certification demonstrating extensive field experience and technical knowledge.'
+    id: 'cwe',
+    title: 'Certified Welding Educator (CWE)',
+    issuer: 'American Welding Society (AWS)',
+    description: 'Training and mentorship that improves consistency, helps teams qualify, and reduces rework through practical instruction.',
+    highlights: [
+      'Hands on workforce training',
+      'Qualification preparation and coaching',
+      'Instructor background in welding and inspection'
+    ]
+  },
+  {
+    id: 'certified-welder',
+    title: 'Certified Welder',
+    issuer: 'AWS aligned performance qualification',
+    description: 'Qualified welder with broad field experience in commercial piping systems and specialty work requiring consistent, repeatable results.',
+    highlights: [
+      'Carbon and stainless piping systems',
+      'High purity piping and gas delivery experience',
+      'Work performed to project specifications and applicable codes'
+    ]
+  },
+  {
+    id: 'journeyman-pipefitter',
+    title: 'Journeyman Pipefitter',
+    issuer: 'Plumbers & Pipefitters Local Union 286',
+    description: 'Journeyman level experience supporting commercial and industrial piping installations across multiple systems and industries.',
+    highlights: [
+      'Plumbing and HVAC mechanical systems',
+      'Pharma, alternative energy, and semi environments',
+      'Code driven fabrication and field installation'
+    ]
   }
 ]
+
 
 // Service areas data
 export const SERVICE_AREAS: ServiceArea[] = [
@@ -82,20 +125,6 @@ export const TESTIMONIALS: Testimonial[] = [
     author: 'John Smith',
     company: 'ABC Construction',
     project: 'Commercial Steel Framework - Austin, TX'
-  },
-  {
-    id: 'testimonial-2',
-    quote: 'Responsive communication and expert knowledge of welding codes. We trust them with all our critical inspections.',
-    author: 'Sarah Johnson',
-    company: 'XYZ Industrial',
-    project: 'Pipeline Fabrication - Houston, TX'
-  },
-  {
-    id: 'testimonial-3',
-    quote: 'Their NDT testing services caught potential issues before they became problems. Highly recommend for any structural welding project.',
-    author: 'Mike Rodriguez',
-    company: 'Steel Solutions LLC',
-    project: 'Bridge Repair - San Antonio, TX'
   }
 ]
 

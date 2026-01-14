@@ -19,7 +19,25 @@ const routes: RouteRecordRaw[] = [
       title: 'Project Gallery - Hinkle Inspection & Testing',
       description: 'View our recent welding inspection and testing projects.'
     }
-  }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/views/AboutPage.vue'),
+    meta: {
+      title: 'About - Hinkle Inspection & Testing',
+      description: 'About .'
+    }
+  },
+  {
+    path: '/tos',
+    name: 'tos',
+    component: () => import('@/views/PrivacyTermsPage.vue'),
+    meta: {
+      title: 'Privacy & Terms',
+      description: 'Privacy policy and terms of service .'
+    }
+  },
 ]
 
 const router = createRouter({

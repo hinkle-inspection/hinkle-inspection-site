@@ -100,7 +100,7 @@
       </div>
     </section>
 
-    <section id="testimonials" class="home-page__section home-page__section--alt">
+    <!-- <section id="testimonials" class="home-page__section home-page__section--alt">
       <div class="home-page__container">
         <h2 class="home-page__heading">What Clients Say</h2>
         
@@ -112,9 +112,9 @@
           />
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section id="contact" class="home-page__section">
+    <!-- <section id="contact" class="home-page__section">
       <div class="home-page__container">
         <h2 class="home-page__heading">Request a Quote</h2>
         <p class="home-page__intro">
@@ -123,7 +123,7 @@
 
         <QuoteForm :config="quoteConfig" :services="services" />
       </div>
-    </section>
+    </section> -->
 
     <!-- Lightbox -->
     <BaseLightbox

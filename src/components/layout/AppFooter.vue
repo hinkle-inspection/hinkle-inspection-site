@@ -14,7 +14,8 @@
           <nav class="footer__nav">
             <RouterLink to="#services" class="footer__link">Services</RouterLink>
             <RouterLink to="#credentials" class="footer__link">Credentials</RouterLink>
-            <RouterLink to="#testimonials" class="footer__link">Testimonials</RouterLink>
+            <!-- <RouterLink to="#testimonials" class="footer__link">Testimonials</RouterLink> -->
+            <RouterLink :to="{ name: 'about' }" class="footer__link">About</RouterLink>
             <RouterLink :to="{ name: 'gallery' }" class="footer__link">Gallery</RouterLink>
           </nav>
         </div>
@@ -43,9 +44,10 @@
           &copy; {{ currentYear }} Hinkle Inspection & Testing. All rights reserved.
         </p>
         <div class="footer__legal">
-          <a href="#" class="footer__link footer__link--small">Privacy Policy</a>
-          <span class="footer__separator">|</span>
-          <a href="#" class="footer__link footer__link--small">Terms of Service</a>
+
+          <RouterLink :to="{ name: 'tos' }" class="footer__link footer__link--small">Privacy Policy & Terms of Service</RouterLink>
+          <!-- <span class="footer__separator">|</span> -->
+          <!-- <a href="#" class="footer__link footer__link--small">Terms of Service</a> -->
         </div>
       </div>
     </div>

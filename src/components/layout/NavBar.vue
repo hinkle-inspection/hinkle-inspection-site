@@ -19,6 +19,14 @@
           </RouterLink>
           
           <RouterLink 
+            :to="{ name: 'about' }" 
+            class="navbar__link"
+            active-class="navbar__link--active"
+            @click="closeMobileMenu"
+          >
+            About
+          </RouterLink>
+          <RouterLink 
             :to="{ name: 'gallery' }" 
             class="navbar__link"
             active-class="navbar__link--active"
@@ -27,13 +35,13 @@
             Gallery
           </RouterLink>
 
-          <RouterLink
+          <!-- <RouterLink
             :to="{ name: 'home', hash: '#contact' }"
             class="navbar__cta"
             @click="closeMobileMenu"
           >
             Request Quote
-          </RouterLink>
+          </RouterLink> -->
         </div>
 
         <ThemeToggle />
@@ -70,13 +78,13 @@
         Gallery
       </RouterLink>
 
-      <RouterLink
+      <!-- <RouterLink
         :to="{ name: 'home', hash: '#contact' }"
         class="navbar__mobile-cta"
         @click="closeMobileMenu"
       >
         Request Quote
-      </RouterLink>
+      </RouterLink> -->
     </div>
   </nav>
 </template>
@@ -97,7 +105,7 @@ const router = useRouter()
 const navLinks: NavLink[] = [
   { id: 'services', label: 'Services', hash: '#services' },
   { id: 'certifications', label: 'Credentials', hash: '#credentials' },
-  { id: 'testimonials', label: 'Testimonials', hash: '#testimonials' }
+  // { id: 'testimonials', label: 'Testimonials', hash: '#testimonials' }
 ]
 
 const isMobileMenuOpen = ref(false)

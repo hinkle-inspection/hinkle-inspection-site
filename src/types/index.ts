@@ -10,10 +10,9 @@ export interface Certification {
   id: string
   title: string
   issuer: string
-  logoUrl?: string
-  number?: string
-  expiryDate?: string
   description?: string
+  logoUrl?: string
+  highlights?: string[]
 }
 
 export interface ServiceArea {

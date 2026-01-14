@@ -18,13 +18,13 @@
           {{ subtitle }}
         </p>
         <div class="hero__actions">
-          <a 
+          <!-- <a 
             href="#contact" 
             class="hero__cta hero__cta--primary"
             @click.prevent="scrollToContact"
           >
             {{ primaryCtaText }}
-          </a>
+          </a> -->
           <a 
             href="#services" 
             class="hero__cta hero__cta--secondary"

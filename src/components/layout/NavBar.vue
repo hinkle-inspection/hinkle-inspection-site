@@ -69,6 +69,14 @@
       >
         {{ link.label }}
       </RouterLink>
+
+      <RouterLink 
+        :to="{ name: 'about' }" 
+        class="navbar__mobile-link"
+        @click="closeMobileMenu"
+      >
+        About
+      </RouterLink>
       
       <RouterLink 
         :to="{ name: 'gallery' }" 

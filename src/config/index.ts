@@ -121,10 +121,9 @@ export const SERVICE_AREAS: ServiceArea[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'testimonial-1',
-    quote: 'Professional, thorough, and detail-oriented. Their inspection reports were comprehensive and helped us maintain project compliance throughout construction.',
-    author: 'John Smith',
-    company: 'ABC Construction',
-    project: 'Commercial Steel Framework - Austin, TX'
+    quote: 'Hinkle Inspection & Testing is our go-to third-party partner for welder qualification.  Thomas Hinkle has a wealth of knowledge and has always been more than willing to help my company get where we want to be.',
+    author: 'Tucker Moore',
+    company: 'Texas Corrugators',
   }
 ]
 
